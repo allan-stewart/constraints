@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Constraints</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script type="text/javascript" src="./constraints.js"></script>
+    </head>
+    <body onload="init()">
+        <h1>Constraints</h1>
+        <table id="grid">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+
+        <h2>Goal</h2>
+        <p>Fill the grid above with the numbers 1 through 9 such that:</p>
+        <ul>
+            <li>Every cell has a unique number</li>
+            <li id="iteration2Goal" class="hidden">The right side sums to <span id="rightGoal"></span></li>
+            <li id="iteration3Goal" class="hidden">The top sums to <span id="topGoal"></span></li>
+            <li id="iteration4Goal" class="hidden">The diagonal from bottom right to top left sums to <span id="diagonalGoal"></span></li>
+        </ul>
+        
+        <h2>Controls</h2>
+        <p>
+            To fill in the grid, just type the numbers on your keyboard.
+            You can also move the selection around using the enter or arrow keys.
+        </p>
+    </body>
+</html>
