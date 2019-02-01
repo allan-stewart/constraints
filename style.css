@@ -37,3 +37,33 @@ td {
 .hidden {
     display: none;
 }
+
+.activity {
+    border: 1px solid #382313;
+    border-radius: 5px;
+    background: #fff;
+    padding: 20px;
+    display: flex;
+}
+
+.gridArea {
+    width: 250px;
+    margin-right: auto;
+}
+
+.activity h2:first-child {
+    margin-top: 0;
+}
+
+.activity h2 {
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.activity p {
+    margin: 5px 0;
+}
+
+.activity ul {
+    margin: 5px 0;
+}
