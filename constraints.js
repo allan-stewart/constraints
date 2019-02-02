@@ -57,11 +57,81 @@ const verifyIteration = () => {
     return verifications.every(x => x === true)
 }
 
+const startIteration = () => {
+    started = new Date()
+}
+
+const endIteration = () => {
+    durations.push(getDurationInSeconds());
+    started = null
+    showFeedback()
+    if (iteration >= 4) {
+        document.getElementById('nextButton').classList.add('hidden')
+    }
+}
+
+const getDurationInSeconds = () => {
+    const now = new Date()
+    return Math.round((now.valueOf() - started.valueOf()) / 1000);
+}
+
+const getLastDuration = () => {
+    return durations[durations.length - 1]
+}
+
+const displayDuration = (duration) => {
+    if (duration < 60) {
+        return `${duration} seconds`
+    }
+    const seconds = duration % 60
+    const minutes = Math.floor(duration / 60)
+    return `${minutes} minutes, ${seconds} seconds`
+}
+
+const getSpeed = () => {
+    const lastDuration = getLastDuration()
+    if (lastDuration <= 1) {
+        return 'Lucky'
+    }
+    const previousDuration = durations[durations.length - 2]
+    if (lastDuration < previousDuration + 10) {
+        return 'Fast'
+    }
+    return 'Slow'
+}
+
+const showFeedback = () => {
+    const durationElements = Array.from(document.getElementsByClassName(`duration${iteration}`))
+    durationElements.forEach(x => x.innerHTML = displayDuration(getLastDuration()))
+
+    const allFeedbacks = [1, 2, 3]
+    allFeedbacks.forEach(x => document.getElementById(`feedback${x}`).classList.add('hidden'))
+    document.getElementById(`feedback${iteration}`).classList.remove('hidden')
+
+    if (iteration > 1) {
+        const speed = getSpeed()
+        const speedElement = document.getElementById(`feedback${iteration}${speed}`)
+        if (speedElement) {
+            speedElement.classList.remove('hidden')
+        }
+    }
+
+    goalsAndControls.classList.add('hidden')
+    feedback.classList.remove('hidden')
+}
+
 const nextIteration = () => {
     iteration++
     const goalElement = document.getElementById(`iteration${iteration}Goal`)
     if (goalElement) {
         goalElement.classList.remove('hidden')
+    }
+
+    goalsAndControls.classList.remove('hidden')
+    feedback.classList.add('hidden')
+    startIteration()
+    if (verifyIteration()) {
+        endIteration()
     }
 }
 
@@ -75,10 +145,13 @@ const arrowMap = {
 const setupKeyboard = () => {
     document.onkeydown = (e) => {
         if (['1', '2', '3', '4', '5', '6', '7', '8', '9'].includes(e.key)) {
+            if (!started) {
+                startIteration()
+            }
             setCellNumber(selectedCell, e.key)
             selectCell((selectedCell + 1) % secretArray.length)
             if (verifyIteration()) {
-                nextIteration()
+                endIteration()
             }
             return
         }
@@ -102,9 +175,14 @@ let cells
 let selectedCell
 let iteration = 1
 let started = null
+let durations = []
+let goalsAndControls
+let feedback
 
 const init = () => {
     cells = getGridCells()
+    goalsAndControls = document.getElementById('goalsAndControls')
+    feedback = document.getElementById('feedback')
     setGoal('right', [2, 5, 8])
     setGoal('top', [0, 1, 2])
     setGoal('diagonal', [2, 4, 6])

@@ -35,21 +35,103 @@
                     </table>
                 </div>
 
-                <div>
-                    <h2>Your Goal</h2>
-                    <p>Fill the grid above with the numbers 1 through 9 such that:</p>
-                    <ul>
-                        <li>Every cell has a unique number</li>
-                        <li id="iteration2Goal" class="hidden">The right side sums to <span id="rightGoal"></span></li>
-                        <li id="iteration3Goal" class="hidden">The top sums to <span id="topGoal"></span></li>
-                        <li id="iteration4Goal" class="hidden">The diagonal from bottom right to top left sums to <span id="diagonalGoal"></span></li>
-                    </ul>
+                <div class="descriptionArea">
+                    <div id="goalsAndControls">
+                        <h2>Your Goal</h2>
+                        <p>Fill the grid above with the numbers 1 through 9 such that:</p>
+                        <ul>
+                            <li>Every cell has a unique number</li>
+                            <li id="iteration2Goal" class="hidden">The right side sums to <span id="rightGoal"></span></li>
+                            <li id="iteration3Goal" class="hidden">The top sums to <span id="topGoal"></span></li>
+                            <li id="iteration4Goal" class="hidden">The diagonal from bottom right to top left sums to <span id="diagonalGoal"></span></li>
+                        </ul>
 
-                    <h2>Controls</h2>
-                    <p>
-                        To fill in the grid, just type the numbers on your keyboard.
-                        You can also move the selection around using the enter or arrow keys.
-                    </p>
+                        <h2>Controls</h2>
+                        <p>
+                            To fill in the grid, just type the numbers on your keyboard.
+                            You can also move the selection around using the enter or arrow keys.
+                        </p>
+                    </div>
+
+                    <div id="feedback" class="hidden">
+                        <div id="feedback1" class="hidden">
+                            <h2>Great job!</h2>
+                            <p>It took you <span class="duration1">[duration]</span> to complete the first part of the exercise.</p>
+                            <p>Your next task is to update your grid so that the right side sums to a specific number.</p>
+                        </div>
+
+                        <div id="feedback2" class="hidden">
+                            <div id="feedback2Lucky" class="hidden">
+                                <h2>Lucky!</h2>
+                                <p>Your grid already had the correct sum, so there wasn't anything for you to do.</p>
+                            </div>
+                            <div id="feedback2Fast" class="hidden">
+                                <h2>Wow!</h2>
+                                <p>
+                                    You did that quickly; it only took you <span class="duration2">[duration]</span>.
+                                    Perhaps you are quick at math?
+                                </p>
+                            </div>
+                            <div id="feedback2Slow" class="hidden">
+                                <h2>Good!</h2>
+                                <p>
+                                    That took you <span class="duration2">[duration]</span>.
+                                    Why was it slower?
+                                </p>
+                            </div>
+                            <p>Next, you will be asked to update your grid so that the top row sums to a specific number, while also maintaining the right side sum.</p>
+                        </div>
+
+                        <div id="feedback3" class="hidden">
+                            <div id="feedback3Lucky" class="hidden">
+                                <h2>Lucky!</h2>
+                                <p>Your grid already had the correct sums, so there wasn't anything for you to do.</p>
+                            </div>
+                            <div id="feedback3Fast" class="hidden">
+                                <h2>Good!</h2>
+                                <p>
+                                    You only took <span class="duration3">[duration]</span> to complete the task.
+                                    That's quick!
+                                    Is this getting harder yet?
+                                </p>
+                            </div>
+                            <div id="feedback3Slow" class="hidden">
+                                <h2>Complete</h2>
+                                <p>
+                                    That took you <span class="duration3">[duration]</span>.
+                                    Why did it take so long?
+                                    You've only been asked to arrange 9 numbers on a grid, after all...
+                                </p>
+                            </div>
+                            <p>
+                                For the final task, you need to get the bottom-left to top-right diagonal to sum to a specific value.
+                                Of course, you'll still need to maintain the top and right sums.
+                            </p>
+                        </div>
+
+                        <div id="feedback4" class="hidden">
+                            <h2>Activity Complete</h2>
+                            <p>
+                                Congratulations on finishing the activity.
+                                You completed this last task in <span class="duration4">[duration]</span>.
+                            </p>
+
+                            <p>For the four tasks, these were your times:</p>
+                            <ul>
+                                <li>Task 1: <span class="duration1">[duration]</span></li>
+                                <li>Task 1: <span class="duration2">[duration]</span></li>
+                                <li>Task 1: <span class="duration3">[duration]</span></li>
+                                <li>Task 1: <span class="duration4">[duration]</span></li>
+                            </ul>
+
+                            <p>
+                                What made the activity harder as you progressed?
+                                What was different about the last task compared to the first?
+                            </p>
+                        </div>
+
+                        <button id="nextButton" onclick="nextIteration()">Go</button>
+                    </div>
                 </div>
             </div>
 

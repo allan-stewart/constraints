@@ -47,8 +47,12 @@ td {
 }
 
 .gridArea {
-    width: 250px;
-    margin-right: auto;
+    width: 190px;
+}
+
+.descriptionArea {
+    margin-left: 20px;
+    width: 750px;
 }
 
 .activity h2:first-child {
@@ -58,10 +62,6 @@ td {
 .activity h2 {
     margin-bottom: 0;
     font-size: 1.2em;
-}
-
-.activity p {
-    margin: 5px 0;
 }
 
 .activity ul {
