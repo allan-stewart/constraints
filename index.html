@@ -48,7 +48,7 @@
 
                         <h2>Controls</h2>
                         <p>
-                            To fill in the grid, just type the numbers on your keyboard.
+                            To fill in the grid, type the desired numbers on your keyboard.
                             You can also move the selection around using the enter or arrow keys.
                         </p>
                     </div>
@@ -135,8 +135,50 @@
                 </div>
             </div>
 
+            <h2>Why Constraints Slow You Down</h2>
+            <p>
+                Hopefully the activity above helps you intuit why adding constraints slows you down.
+                At a superficial level, the work appears to be the same throughout: you are <em>"only"</em> putting nine numbers in a grid.
+                But each successive constraint restricts the placement of the numbers on the grid, changing the nature of the work and the effort required as you progress.
+            </p>
+            <p>
+                When the only constraint is to place the nine unique numbers, the work is trivial.
+                Place them in any order you like.
+                One of the simplest methods is to just do them in sequential order.
+                But as the other constraints enter the picture, you have to change your approach to placing the numbers.
+                You may have to significantly rearrange the numbers on the grid to move them into positions that make the sums work out.
+                Even the initial work of making sure you have all nine unique numbers becomes harder as you ask yourself, "Which number am I missing now that I've moved some?"
+            </p>
+            <p>
+                The same thing happens in software development.
+                At a superficial level, the work all seems the same.
+                Why are some things more difficult than others when it all appears to be <em>"only"</em> writing some code?
+                The answer is that there are hidden constraints.
+                Setting aside the inherent technology constraints, every feature you build also acts as a constraint.
+                Adding new features needs to not break old features, and that leads to more mental effort and longer development times just as illustrated in our activity.
+            </p>
+
             <h2>About</h2>
-            <p>This page is based on an activity I experienced as part of a mob programming workshop which Woody Zuill presented.</p>
+            <p>
+                This page is based on an activity I experienced as part of a mob programming workshop which Woody Zuill presented.
+                The participants drew a hash (the '#' symbol like a tic-tac-toe board) on paper then filled in the numbers.
+                We worked in pairs, verifying that each other's numbers satisfied all the constraints.
+                The entire room worked at the same time, and Woody timed how long it took for the pairs to finish.
+            </p>
+            <p>
+                <img class="example" src="./example-constraints.png" />
+                It is a simple exercise to repeat in a group if you have access to writing materials.
+                You can use these example constraints as illustrated on the right:
+            </p>
+            <ol>
+                <li>Each space must be filled with a unique number from 1 though 9</li>
+                <li>The right side must sum to 15</li>
+                <li>The top must sum to 9</li>
+                <li>The diagonal must sum to 18</li>
+            </ol>
+            <p>
+                The facilitator should make sure to inquire why the successive rounds are taking longer, making sure to explain the concept at the end.
+            </p>
         </div>
     </body>
 </html>
