@@ -126,6 +126,8 @@ const nextIteration = () => {
     const goalElement = document.getElementById(`iteration${iteration}Goal`)
     if (goalElement) {
         goalElement.classList.remove('hidden')
+        Array.from(document.getElementsByClassName('new')).forEach(x => x.classList.remove('new'))
+        goalElement.classList.add('new')
     }
 
     goalsAndControls.classList.remove('hidden')

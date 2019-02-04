@@ -77,6 +77,10 @@ td {
     margin: 5px 0;
 }
 
+.new {
+    font-weight: bold;
+}
+
 button {
     color: #fff;
     background-color: #00A8C6;
