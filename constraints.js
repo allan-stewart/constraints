@@ -164,6 +164,7 @@ const setupKeyboard = () => {
         }
         if (arrowMap[e.key]) {
             selectCell(arrowMap[e.key][selectedCell])
+            e.preventDefault()
             return
         }
     }
