@@ -80,12 +80,13 @@ const getLastDuration = () => {
 }
 
 const displayDuration = (duration) => {
+    const pluralize = (value) => value == 1 ? '' : 's'
     if (duration < 60) {
-        return `${duration} seconds`
+        return `${duration} second${pluralize(duration)}`
     }
     const seconds = duration % 60
     const minutes = Math.floor(duration / 60)
-    return `${minutes} minutes, ${seconds} seconds`
+    return `${minutes} minute${pluralize(minutes)}, ${seconds} second${pluralize(seconds)}`
 }
 
 const getSpeed = () => {
